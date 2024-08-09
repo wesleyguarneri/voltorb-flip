@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
@@ -9,5 +9,11 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './card.component.scss'
 })
 export class CardComponent {
+  @Input()
+  set param(p: any) {
+    this.value = p.value
+  }
+
+  value:string;
 
 }
