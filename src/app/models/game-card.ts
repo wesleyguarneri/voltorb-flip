@@ -1,3 +1,6 @@
 export interface GameCard{
-    value: number;
+    value: number;    
+    isFlipped: boolean;
+    backImage: string;
+    frontImage: string;
 }
