@@ -26,8 +26,11 @@ export class BoardComponent {
       }
     }
 
-    flipCard(index: any){
-      this.cards[index].isFlipped=true
-      console.log(this.cards[index])
+    flipCard(index: number) {
+      this.cards[index].isFlipped = !this.cards[index].isFlipped;
+    }    
+  
+    getFlipState(isFlipped: boolean) {
+      return isFlipped ? 'flipped' : 'default';
     }
 }

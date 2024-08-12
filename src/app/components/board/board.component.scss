@@ -6,29 +6,64 @@
 .tile{
     display: flex;
     object-fit: cover;
-    // background-image: url('/assets/blanktile.svg');
-    // background: transparent;
-    // box-shadow: none;
-    
-    // background-color: rgba(0, 0, 0, 0.5);
 }
 
 .gameCard{
     display: flex;
-
     width: 100%;
     height: 100%;
     object-fit: contain;
     object-fit: cover;
     border-radius: 0;
-    // background-color: rgba(51, 170, 51, .1);
-    // background-image: url('/assets/blanktile.svg');
+    perspective: 1000px;
 }
 
 .gameCardImage{
     display: flex;
     height: max-content;     
     object-fit: cover;
-    transform-style: preserve-3d;
-
 }
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    transform: rotateY(0deg);
+}
+
+.flipped .flip-card-inner {
+    transform: rotateY(-180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-card-front {
+    transform: rotateY(0deg);
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front img,
+.flip-card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: inherit;
+}
+
+
+  
