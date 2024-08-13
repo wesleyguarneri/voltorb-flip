@@ -12,13 +12,24 @@
             </div>
         </mat-card>
         <mat-card class="infoCard" *ngIf="card.type=='info'">
-            <div class="pointWrapper">
-                <h5 style="margin:0">1</h5>
-            </div>
-            <div class="bombInfoContainer">
-                <img mat-card-image class="bombImage" src="{{card.frontImage}}">
-                <h5 class="bombText">2</h5>
-            </div>
+            <mat-card-content class="infoContainer" *ngIf="idx<30" [ngStyle]="{background: colorArray[((idx+1)/6)-1]}">
+                <div class="pointWrapper">
+                    1
+                </div>
+                <div class="bombInfoContainer">
+                    <img mat-card-image class="bombImage" src="{{card.frontImage}}">
+                    2
+                </div>
+            </mat-card-content>
+            <mat-card-content class="infoContainer" *ngIf="idx>=30" [ngStyle]="{background: colorArray[idx-30]}">
+                <div class="pointWrapper">
+                    1
+                </div>
+                <div class="bombInfoContainer">
+                    <img mat-card-image class="bombImage" src="{{card.frontImage}}">
+                    2
+                </div>
+            </mat-card-content>
         </mat-card>
       </mat-grid-tile>
     </mat-grid-list>
