@@ -24,7 +24,7 @@ export class BoardComponent {
       "6": [[8, 1, 10], [5, 3, 10], [3, 4, 10], [2, 5, 10], [0, 6, 10]],
       "7": [[9, 1, 13], [7, 2, 10], [6, 3, 10], [4, 4, 10], [1, 6, 13]],
     }
-    colorArray=['red','blue','yellow','orange','pink']
+    colorArray=['#de7055','#45a746','#e69f43','#3792f5','#bf65dd']
 
     constructor(){}
 
