@@ -91,12 +91,16 @@
     height: 100%;
     padding: 0 0 0 0 !important;
     margin-top: 0;
+    font-size: 2em;
+    font-weight: bold;
 }
 
 .pointWrapper{
     display: flex;
+    flex: 1 2;
+    height: 40%;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
     border-bottom: 3px;
     border-bottom-style: solid;
     border-bottom-color:white;
@@ -104,14 +108,17 @@
 
 .bombInfoContainer {
     display: flex;
+    flex: 1 2;
+    height: 60%;
     align-items: center;
     justify-content: space-between;
 
 }
 
 .bombImage {
-    max-width: 50px;
-    max-height: 50px;
+    flex: 1 2;
+    height: 40px;
+    width: auto;
     margin-right: 10px;
 }
 

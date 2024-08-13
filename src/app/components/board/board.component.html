@@ -14,20 +14,20 @@
         <mat-card class="infoCard" *ngIf="card.type=='info'">
             <mat-card-content class="infoContainer" *ngIf="idx<30" [ngStyle]="{background: colorArray[((idx+1)/6)-1]}">
                 <div class="pointWrapper">
-                    1
+                    01
                 </div>
                 <div class="bombInfoContainer">
                     <img mat-card-image class="bombImage" src="{{card.frontImage}}">
-                    2
+                    02
                 </div>
             </mat-card-content>
             <mat-card-content class="infoContainer" *ngIf="idx>=30" [ngStyle]="{background: colorArray[idx-30]}">
                 <div class="pointWrapper">
-                    1
+                    01
                 </div>
                 <div class="bombInfoContainer">
                     <img mat-card-image class="bombImage" src="{{card.frontImage}}">
-                    2
+                    02
                 </div>
             </mat-card-content>
         </mat-card>

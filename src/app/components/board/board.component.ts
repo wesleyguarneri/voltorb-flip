@@ -32,10 +32,10 @@ export class BoardComponent {
       let i = 0;
       while(i<35){
         if(((i+1)%6 == 0) || i>=30){
-          this.cards.push({value:1,type:'info',isFlipped:false,backImage:'',frontImage:'/assets/voltorb_small.png'})
+          this.cards.push({value:1,type:'info',isFlipped:false,backImage:'',frontImage:'/assets/voltorbs/voltorb.png'})
         }
         else{
-          this.cards.push({value:1,type:'game',isFlipped:false,backImage:'/assets/icons/large-1.svg',frontImage:'/assets/blanktile.svg'})
+          this.cards.push({value:1,type:'game',isFlipped:false,backImage:'/assets/numbers/large-1.svg',frontImage:'/assets/blanktile.svg'})
         }
         i+=1
       }
