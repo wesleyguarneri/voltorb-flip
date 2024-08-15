@@ -29,6 +29,10 @@ export class BoardComponent {
     constructor(){}
 
     ngOnInit(){
+      this.generateBoard()
+    }
+
+    generateBoard(){
       let i = 0;
       while(i<35){
         if(((i+1)%6 == 0) || i>=30){
@@ -39,10 +43,6 @@ export class BoardComponent {
         }
         i+=1
       }
-    }
-
-    createCardGrid(){
-
     }
 
     flipCard(index: number) {

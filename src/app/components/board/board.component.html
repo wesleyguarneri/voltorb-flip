@@ -1,13 +1,13 @@
 <div class="board-container">
-    <mat-grid-list cols="6" rowHeight="1:1" gutterSize="10px">
+    <mat-grid-list class="gridList" cols="6" rowHeight="1:1" gutterSize="10px">
       <mat-grid-tile class='tile' *ngFor="let card of cards; let idx=index" (click)="flipCard(idx)">
         <mat-card class="gameCard" *ngIf="card.type=='game'" [ngClass]="{ 'flipped': card.isFlipped }">
             <div class="flipCardInner">
                 <div class="flipCardFront">
-                    <img mat-card-image src="{{card.frontImage}}" class="gameCardBack" layout-fill>
+                    <img mat-card-image src="{{card.frontImage}}" class="frontImage" layout-fill>
                 </div>
                 <div class="flipCardBack">
-                    <img mat-card-image src="{{card.backImage}}" class="gameCardFront" layout-fill>
+                    <img mat-card-image src="{{card.backImage}}" class="backImage" layout-fill>
                 </div>
             </div>
         </mat-card>
