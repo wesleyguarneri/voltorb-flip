@@ -1,7 +1,7 @@
 <div class="board-container">
     <mat-grid-list class="gridList" cols="6" rowHeight="1:1" gutterSize="10px">
       <mat-grid-tile class='tile' *ngFor="let card of cards; let idx=index" (click)="flipCard(idx)">
-        <mat-card class="gameCard" *ngIf="card.type=='game'" [ngClass]="{ 'flipped': card.isFlipped }">
+        <mat-card class="gameCard" *ngIf="card.type=='flip'" [ngClass]="{ 'flipped': card.isFlipped }">
             <div class="flipCardInner">
                 <div class="flipCardFront">
                     <img mat-card-image src="{{card.frontImage}}" class="frontImage" layout-fill>
@@ -14,20 +14,20 @@
         <mat-card class="infoCard" *ngIf="card.type=='info'">
             <mat-card-content class="infoContainer" *ngIf="idx<30" [ngStyle]="{background: colorArray[((idx+1)/6)-1]}">
                 <div class="pointWrapper">
-                    01
+                    {{getRowSums(idx).rowSum}}
                 </div>
                 <div class="bombInfoContainer">
                     <img mat-card-image class="bombImage" src="{{card.frontImage}}">
-                    02
+                    {{getRowSums(idx).bombSum}}
                 </div>
             </mat-card-content>
             <mat-card-content class="infoContainer" *ngIf="idx>=30" [ngStyle]="{background: colorArray[idx-30]}">
                 <div class="pointWrapper">
-                    01
+                    {{getColSums(idx).colSum}}
                 </div>
                 <div class="bombInfoContainer">
                     <img mat-card-image class="bombImage" src="{{card.frontImage}}">
-                    02
+                    {{getColSums(idx).bombSum}}
                 </div>
             </mat-card-content>
         </mat-card>
