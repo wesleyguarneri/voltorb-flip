@@ -5,3 +5,13 @@
     display: flex;
     justify-content: center;
 }
+
+@media screen and (min-width: 400px) {
+    .gameContainer{
+        background-color: var(--background);
+        width: 100vw;
+        height: calc(100vh - 55px);
+        display: flex;
+        justify-content: center;
+    }
+}
