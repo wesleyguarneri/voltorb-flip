@@ -1,5 +1,5 @@
 export interface GameCard{
-    value: number; 
+    value: string; 
     type: string;   
     isFlipped: boolean;
     backImage: string;
