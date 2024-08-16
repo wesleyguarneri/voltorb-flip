@@ -33,18 +33,18 @@
               {
                 "glob":"src/assets",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "!src/server/",
+                "output": "/server/"
               }
             ],
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
