@@ -50,10 +50,10 @@ export class BoardComponent {
       let i = 0;
       while(i<35){
         if(((i+1)%6 == 0) || i>=30){
-          this.cards.push({value:'0',type:'info',isFlipped:false,backImage:'',frontImage:'/assets/voltorbs/voltorb.png'})
+          this.cards.push({value:'0',type:'info',isFlipped:false,backImage:'',frontImage:'./assets/voltorbs/voltorb.png'})
         }
         else{
-          this.cards.push({value:'1',type:'flip',isFlipped:false,backImage:'/assets/numbers/large-1.svg',frontImage:'/assets/blanktile.svg'})
+          this.cards.push({value:'1',type:'flip',isFlipped:false,backImage:'./assets/numbers/large-1.svg',frontImage:'./assets/blanktile.svg'})
         }
         i+=1
       }
@@ -71,7 +71,7 @@ export class BoardComponent {
         cardIdx = this.getRandomNumber(0,123456789) % 25
         if(this.cards[cardIdx].value == '1'){
           this.cards[cardIdx].value = '2'
-          this.cards[cardIdx].backImage = '/assets/numbers/large-2.svg'
+          this.cards[cardIdx].backImage = './assets/numbers/large-2.svg'
           i++
         }
       }
@@ -82,7 +82,7 @@ export class BoardComponent {
         cardIdx = this.getRandomNumber(0,123456789) % 25
         if(this.cards[cardIdx].value == '1'){
           this.cards[cardIdx].value = '3'
-          this.cards[cardIdx].backImage = '/assets/numbers/large-3.svg'
+          this.cards[cardIdx].backImage = './assets/numbers/large-3.svg'
           i++
         }
       }
@@ -93,7 +93,7 @@ export class BoardComponent {
         cardIdx = this.getRandomNumber(0,123456789) % 25
         if(this.cards[cardIdx].value == '1'){
           this.cards[cardIdx].value = '0'
-          this.cards[cardIdx].backImage = '/assets/voltorbs/voltorb_large.png'
+          this.cards[cardIdx].backImage = './assets/voltorbs/voltorb_large.png'
           i++
         }
       }
