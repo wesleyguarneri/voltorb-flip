@@ -1,5 +1,6 @@
 <mat-dialog-content class="resultContainer">
-  <p style="font-size: 2em;">you lost :(</p>
+  <p style="font-size: 2em;" *ngIf="data.result === 'loss'">you lost :(</p>
+  <p style="font-size: 2em;" *ngIf="data.result === 'win'">you won :)</p>
 </mat-dialog-content>
 <mat-dialog-actions>
     <button mat-button mat-dialog-close>Close</button>

@@ -37,8 +37,11 @@ export class BoardComponent {
       [0, 7, 10], [8, 2, 10], [5, 4, 10], [2, 6, 10], [7, 3, 10]
     ]
     colorArray=['#de7055','#45a746','#e69f43','#3792f5','#bf65dd']
-    level:number =  3
+    level:number =  1
     openResultModal:boolean = false;
+    twoPointCount: number = 0
+    threePointCount: number = 0
+    pointData: number[] = []
 
     constructor(public dialog: MatDialog){}
 
@@ -48,6 +51,10 @@ export class BoardComponent {
 
     generateBoard(){
       let i = 0;
+      this.twoPointCount = 0
+      this.threePointCount = 0
+      this.cards = []
+
       while(i<35){
         if(((i+1)%6 == 0) || i>=30){
           this.cards.push({value:'0',type:'info',isFlipped:false,backImage:'',frontImage:'./assets/voltorbs/voltorb.png'})
@@ -62,13 +69,13 @@ export class BoardComponent {
       let levelMultiplier = (this.level-1)*10
       randNum = Math.ceil((randNum % 100)/10)
       let boardNum = randNum-1+levelMultiplier
-      console.log(boardNum)
-      let pointData = this.boardConfigs[boardNum]
+      this.pointData = this.boardConfigs[boardNum]
       let cardIdx: number
       
+      console.log(this.pointData)
       // Set 2 points
       i = 0;
-      while(i<pointData[0]){
+      while(i<this.pointData[0]){
         cardIdx = this.getRandomNumber(0,123456789) % 25
         if(this.cards[cardIdx].value == '1'){
           this.cards[cardIdx].value = '2'
@@ -79,7 +86,7 @@ export class BoardComponent {
 
       // Set 3 points
       i = 0
-      while(i<pointData[1]){
+      while(i<this.pointData[1]){
         cardIdx = this.getRandomNumber(0,123456789) % 25
         if(this.cards[cardIdx].value == '1'){
           this.cards[cardIdx].value = '3'
@@ -90,7 +97,7 @@ export class BoardComponent {
 
       // Set bomb value
       i = 0
-      while(i<pointData[2]){
+      while(i<this.pointData[2]){
         cardIdx = this.getRandomNumber(0,123456789) % 25
         if(this.cards[cardIdx].value == '1'){
           this.cards[cardIdx].value = '0'
@@ -135,15 +142,57 @@ export class BoardComponent {
 
     flipCard(index: number) {
       this.cards[index].isFlipped = !this.cards[index].isFlipped;
+
       if(this.cards[index].value == '0'){
-        this.dialog.open(ResultModalComponent, {
+        const dialogRef = this.dialog.open(ResultModalComponent, {
           height: '200px',
           width: '300px',
+          data: {
+            result: 'loss'
+          }
         });
-        this.openResultModal = true
+
+        dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed');
+          console.log(result)
+          this.flipAllCards(true)
+
+          setTimeout(() => {
+            this.flipAllCards(false).then(() => {
+              setTimeout(() => {this.generateBoard()},500);
+            });
+          }, 2000);
+        });
+      }
+      else if(this.cards[index].value == '2'){
+        this.twoPointCount+=1
+      }
+      else if(this.cards[index].value == '3'){
+        this.threePointCount+=1
+      }
+
+      if(this.twoPointCount == this.pointData[0] && this.threePointCount == this.pointData[1]){
+        console.log('you won')
+        const dialogRef = this.dialog.open(ResultModalComponent, {
+          height: '200px',
+          width: '300px',
+          data: {
+            result: 'win'
+          }
+        });
       }
     }    
   
+    flipAllCards(flipState: boolean): Promise<void> {
+      return new Promise((resolve) => {
+        this.cards.forEach(card => {
+          card.isFlipped = flipState;
+        });
+        resolve();
+      });
+    }
+    
+
     getFlipState(isFlipped: boolean) {
       return isFlipped ? 'flipped' : 'default';
     }
