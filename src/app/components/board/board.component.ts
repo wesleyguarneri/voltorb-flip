@@ -6,12 +6,12 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { ResultModalComponent } from '../result-modal/result-modal.component';
 import { MatDialog } from '@angular/material/dialog';
-
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [CommonModule,CardComponent,MatGridListModule,MatCardModule,ResultModalComponent],
+  imports: [CommonModule,CardComponent,MatGridListModule,MatCardModule,ResultModalComponent,MatButtonModule],
   templateUrl: './board.component.html',
   styleUrl: './board.component.scss'
 })
