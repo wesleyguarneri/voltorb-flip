@@ -37,7 +37,7 @@ export class BoardComponent {
       [0, 7, 10], [8, 2, 10], [5, 4, 10], [2, 6, 10], [7, 3, 10]
     ]
     colorArray=['#de7055','#45a746','#e69f43','#3792f5','#bf65dd']
-    level:number =  1
+    level:number =  8
     openResultModal:boolean = false;
     twoPointCount: number = 0
     threePointCount: number = 0
@@ -153,8 +153,6 @@ export class BoardComponent {
         });
 
         dialogRef.afterClosed().subscribe(result => {
-          console.log('The dialog was closed');
-          console.log(result)
           this.flipAllCards(true)
 
           setTimeout(() => {
@@ -172,13 +170,21 @@ export class BoardComponent {
       }
 
       if(this.twoPointCount == this.pointData[0] && this.threePointCount == this.pointData[1]){
-        console.log('you won')
         const dialogRef = this.dialog.open(ResultModalComponent, {
           height: '200px',
           width: '300px',
           data: {
             result: 'win'
           }
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          this.flipAllCards(true)
+
+          setTimeout(() => {
+            this.flipAllCards(false).then(() => {
+              setTimeout(() => {this.generateBoard()},500);
+            });
+          }, 2000);
         });
       }
     }    
