@@ -62,6 +62,7 @@ export class BoardComponent {
       let levelMultiplier = (this.level-1)*10
       randNum = Math.ceil((randNum % 100)/10)
       let boardNum = randNum-1+levelMultiplier
+      console.log(boardNum)
       let pointData = this.boardConfigs[boardNum]
       let cardIdx: number
       
