@@ -10,4 +10,11 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class MemoButtonComponent {
 
+  constructor(){}
+
+  ngOnInit(){}
+  
+  toggleMemoButton(){
+    console.log('clicked!')
+  }
 }
