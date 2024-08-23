@@ -18,8 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
         opacity: 0
       })),
       transition('open => closed', [
-        style({transform: 'translateY(100%)'}),
-        animate('200ms ease-in', style({transform: 'translateY(0%)',opacity: 0}))
+        style({transform: 'translateY(0%)'}),
+        animate('200ms ease-in', style({transform: 'translateY(-100%)',opacity: 0}))
       ]),
       transition('closed => open', [
         style({transform: 'translateY(-100%)'}),
