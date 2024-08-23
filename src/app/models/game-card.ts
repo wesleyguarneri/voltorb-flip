@@ -4,4 +4,8 @@ export interface GameCard{
     isFlipped: boolean;
     backImage: string;
     frontImage: string;
+    bombMemo: boolean;
+    oneMemo: boolean;
+    twoMemo: boolean;
+    threeMemo: boolean;
 }

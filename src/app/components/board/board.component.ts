@@ -57,10 +57,10 @@ export class BoardComponent {
 
       while(i<35){
         if(((i+1)%6 == 0) || i>=30){
-          this.cards.push({value:'0',type:'info',isFlipped:false,backImage:'',frontImage:'./assets/voltorbs/voltorb.png'})
+          this.cards.push({value:'0',type:'info',isFlipped:false,backImage:'',frontImage:'./assets/voltorbs/voltorb.png',bombMemo:false,oneMemo:false,twoMemo:false,threeMemo:false})
         }
         else{
-          this.cards.push({value:'1',type:'flip',isFlipped:false,backImage:'./assets/numbers/large-1.svg',frontImage:'./assets/blanktile.svg'})
+          this.cards.push({value:'1',type:'flip',isFlipped:false,backImage:'./assets/numbers/large-1.svg',frontImage:'./assets/blanktile.svg',bombMemo:false,oneMemo:false,twoMemo:false,threeMemo:false})
         }
         i+=1
       }
