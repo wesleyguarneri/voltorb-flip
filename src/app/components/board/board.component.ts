@@ -36,7 +36,7 @@ export class BoardComponent {
       [0, 7, 10], [8, 2, 10], [5, 4, 10], [2, 6, 10], [7, 3, 10],
       [0, 7, 10], [8, 2, 10], [5, 4, 10], [2, 6, 10], [7, 3, 10]
     ]
-    colorArray=['#de7055','#45a746','#e69f43','#3792f5','#bf65dd']
+    colorArray=['#f86a47','#00b02d','#fca100','#0097ff','#d55cee']
     level:number =  8
     openResultModal:boolean = false;
     twoPointCount: number = 0
