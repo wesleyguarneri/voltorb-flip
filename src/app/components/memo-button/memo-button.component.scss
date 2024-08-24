@@ -45,7 +45,14 @@
     margin-top: 1rem;
 }
 
-.bombMemoButton{
-    width: 100%;
+.memoOptionsButton{
+    display: flex;
     height: 100%;
+    object-fit: contain;
+    object-fit: cover;
+}
+
+.gameCardImage{
+    display: flex;
+    height: 62px;     
 }

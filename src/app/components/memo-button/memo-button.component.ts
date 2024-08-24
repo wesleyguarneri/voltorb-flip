@@ -2,11 +2,12 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-memo-button',
   standalone: true,
-  imports: [MatButtonModule,CommonModule],
+  imports: [MatButtonModule,CommonModule,MatGridListModule,],
   templateUrl: './memo-button.component.html',
   styleUrl: './memo-button.component.scss',
   animations: [

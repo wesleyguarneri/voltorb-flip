@@ -6,7 +6,27 @@
 
 <div class="optionsContainer">
     <div class="memoOptions" [@openClose]="isOpen ? 'open' : 'closed'">
-        <button class="bombMemoButton" >
-        </button>
+        <mat-grid-list class="gridList" cols="2" rowHeight="1:1" gutterSize="0px">
+            <mat-grid-tile>
+                <button class="memoOptionsButton">
+                    <img mat-card-image src="/assets/memo/memo-0.svg" class="gameCardImage" layout-fill>	
+                </button>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <button class="memoOptionsButton">
+                    <img mat-card-image src="/assets/memo/memo-1.svg" class="gameCardImage" layout-fill>	
+                </button>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <button class="memoOptionsButton">
+                    <img mat-card-image src="/assets/memo/memo-2.svg" class="gameCardImage" layout-fill>	
+                </button>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <button class="memoOptionsButton">
+                    <img mat-card-image src="/assets/memo/memo-3.svg" class="gameCardImage" layout-fill>	
+                </button>
+            </mat-grid-tile>
+        </mat-grid-list>
     </div>
 </div>
