@@ -46,22 +46,6 @@
     box-sizing: border-box;
 }
 
-.flipCardInner:active, 
-.flipCardInner:visited, 
-.flipCardInner:focus {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-    transform: rotateY(0deg);
-    border-color:rgb(255, 0, 0);
-    border-width: 3px;
-    border-style: solid;    
-    box-sizing: border-box;
-}
-
 .flipped .flipCardInner {
     transform: rotateY(-180deg);
 }
@@ -158,6 +142,36 @@
 
 .bombText {
     margin: 0;
+}
+
+.overlayMemo0 {
+    position: absolute;
+    display: inline-block;
+    top: 0px;
+    left: 0px;
+}
+
+.overlayMemo1 {
+    position: absolute;
+    display: inline-block;
+    top: 0px;
+    right: 0px;
+}
+
+.overlayMemo2 {
+    position: absolute;
+    display: inline-block;
+    bottom: 0px;
+    left: 0px;
+    height: 25px;
+}
+
+.overlayMemo3 {
+    position: absolute;
+    display: inline-block;
+    bottom: 0px;
+    right: 0px;
+    height: 25px;
 }
 
 @media screen and (max-width: 450px) {

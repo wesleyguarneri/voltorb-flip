@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { BoardStateService } from '../../services/board-state.service';
 
 @Component({
   selector: 'app-memo-button',
@@ -33,11 +34,18 @@ export class MemoButtonComponent {
 
   isOpen: boolean = false;
 
-  constructor(){}
+  constructor(
+    private boardState: BoardStateService
+  ){}
 
   ngOnInit(){}
   
   toggleMemoButton(){
     this.isOpen = !this.isOpen
+  }
+
+  setBoardState(state: string){
+    console.log(state)
+    this.boardState.setState(state)
   }
 }

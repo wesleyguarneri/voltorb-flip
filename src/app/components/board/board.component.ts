@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChildren } from '@angular/core';
+import { Component, ElementRef, inject, ViewChildren } from '@angular/core';
 import { CardComponent } from '../card/card.component';
 import { MatGridListModule } from '@angular/material/grid-list'
 import { GameCard } from '../../models/game-card';
@@ -7,16 +7,23 @@ import { MatCardModule } from '@angular/material/card';
 import { ResultModalComponent } from '../result-modal/result-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { BoardStateService } from '../../services/board-state.service';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
+
+const iconMemo0 = `<svg height="400" viewBox="0 0 400 400" width="400" xmlns="http://www.w3.org/2000/svg"><path d="m80 40v40h-40-40v120 120h40 40v40 40h120 120v-40-40h40 40v-120-120h-40-40v-40-40h-120-120z" fill="#fcd444"/></svg>`
 
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [CommonModule,CardComponent,MatGridListModule,MatCardModule,ResultModalComponent,MatButtonModule],
+  imports: [CommonModule,CardComponent,MatGridListModule,MatCardModule,
+    ResultModalComponent,MatButtonModule,MatIconModule,],
+  providers: [
+  ],
   templateUrl: './board.component.html',
   styleUrl: './board.component.scss'
 })
 export class BoardComponent {
-
   cards: GameCard[] = []
   boardConfigs = [
     [5, 0, 6], [4, 1, 6], [3, 1, 6], [2, 2, 6], [0, 3, 6],
@@ -37,14 +44,18 @@ export class BoardComponent {
     [0, 7, 10], [8, 2, 10], [5, 4, 10], [2, 6, 10], [7, 3, 10]
   ]
   colorArray=['#f86a47','#00b02d','#fca100','#0097ff','#d55cee']
-  level:number =  8
+  level:number =  5
   openResultModal:boolean = false;
   twoPointCount: number = 0
   threePointCount: number = 0
   pointData: number[] = []
   focus: boolean = false;
 
-  constructor(public dialog: MatDialog){}
+  constructor(
+    public dialog: MatDialog,
+    private boardState: BoardStateService,
+  ){}
+
 
   ngOnInit(){
     this.generateBoard()
@@ -141,6 +152,24 @@ export class BoardComponent {
     return Math.floor(Math.random() * (max-min+1)+min);
   }
 
+  onCardClick(index:number){
+    if(this.boardState.getState() === 'memo0'){
+      this.cards[index].bombMemo = true
+    }
+    else if(this.boardState.getState() === 'memo1'){
+      this.cards[index].oneMemo = true
+    }
+    else if(this.boardState.getState() === 'memo2'){
+      this.cards[index].twoMemo = true
+    }
+    else if(this.boardState.getState() === 'memo3'){
+      this.cards[index].threeMemo = true
+    }
+    else{
+      this.flipCard(index)
+    }
+  }
+
   flipCard(index: number) {
     this.cards[index].isFlipped = !this.cards[index].isFlipped;
 
@@ -199,6 +228,9 @@ export class BoardComponent {
     });
   }
   
+  setMemoIcon(){
+
+  }
 
   getFlipState(isFlipped: boolean) {
     return isFlipped ? 'flipped' : 'default';

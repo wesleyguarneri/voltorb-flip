@@ -5,7 +5,7 @@ import { MemoButtonComponent } from '../memo-button/memo-button.component';
 @Component({
   selector: 'app-game-screen',
   standalone: true,
-  imports: [BoardComponent,MemoButtonComponent],
+  imports: [BoardComponent,MemoButtonComponent,],
   templateUrl: './game-screen.component.html',
   styleUrl: './game-screen.component.scss'
 })

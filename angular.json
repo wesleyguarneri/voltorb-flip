@@ -80,6 +80,16 @@
               "buildTarget": "flip-game:build:development"
             }
           },
+          "assets": [
+            {
+              "glob": "**/*",
+              "input": "public"
+            },
+            {
+              "glob":"public/assets",
+              "input": "public"
+            }
+          ],
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
@@ -100,7 +110,7 @@
                 "input": "public"
               },
               {
-                "glob":"src/assets",
+                "glob":"public/assets",
                 "input": "public"
               }
             ],
