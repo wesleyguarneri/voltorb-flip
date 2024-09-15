@@ -45,7 +45,6 @@ export class MemoButtonComponent {
   }
 
   setBoardState(state: string){
-    console.log(state)
     this.boardState.setState(state)
   }
 }

@@ -84,7 +84,6 @@ export class BoardComponent {
     this.pointData = this.boardConfigs[boardNum]
     let cardIdx: number
     
-    console.log(this.pointData)
     // Set 2 points
     i = 0;
     while(i<this.pointData[0]){

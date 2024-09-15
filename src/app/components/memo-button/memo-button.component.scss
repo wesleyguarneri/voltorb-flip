@@ -4,6 +4,7 @@
     height: 125px;
     width: 125px;
     margin-left: 1rem;
+    margin-right: 10px;
     border-color: #186c55;
     border-width: 3px;
     border-style: solid;
@@ -55,4 +56,11 @@
 .gameCardImage{
     display: flex;
     height: 62px;     
+}
+
+@media screen and (max-width: 400px) {
+    .memoButtonContainer{
+        display: inline-block;
+        flex-direction: column;
+    }
 }

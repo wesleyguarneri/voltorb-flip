@@ -6,12 +6,18 @@
     justify-content: center;
 }
 
+.memoButton{
+    display: flex;
+    margin-top: 1rem;
+    justify-content: end;
+}
+
 @media screen and (max-width: 400px) {
     .gameContainer{
         background-color: var(--background);
         width: 100vw;
         height: calc(100vh - 56px);
-        display: flex;
-        justify-content: center;
+        display: inline-block;
+        flex-direction: column;
     }
 }

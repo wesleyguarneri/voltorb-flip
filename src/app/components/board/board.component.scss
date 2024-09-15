@@ -1,6 +1,6 @@
-.board-container{
+.boardContainer{
     width: 100vw;
-    height: 100vh;
+    height: 50vh;
     max-width: 600px;
 }
 
@@ -192,7 +192,7 @@
     }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 390px) {    
     .infoContainer{
         width: 100%;
         height: 100%;
@@ -207,5 +207,57 @@
         height: auto;
         width: 20px;
         margin-right: 3px;
+    }
+
+    .memo0, .memo1, .memo2, .memo3{
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .overlayMemo0 {
+        position: absolute;
+        display: inline-block;
+        top: 0px;
+        left: 0px;
+        height: 12px;
+        width: 12px;
+        padding-bottom: 5px;
+        object-fit: contain;
+    }
+    
+    .overlayMemo1 {
+        position: absolute;
+        display: inline-block;
+        top: 0px;
+        right: 0px;
+        height: 12px;
+        width: 12px;
+        padding-bottom: 5px;
+        object-fit: contain;
+
+    }
+    
+    .overlayMemo2 {
+        position: absolute;
+        display: inline-block;
+        bottom: 0px;
+        left: 0px;
+        height: 12px;
+        width: 12px;
+        padding-bottom: 5px;
+        object-fit: contain;
+
+    }
+    
+    .overlayMemo3 {
+        position: absolute;
+        display: inline-block;
+        bottom: 0px;
+        right: 0px;
+        height: 12px;
+        width: 12px;
+        padding-bottom: 5px;
+        object-fit: contain;
     }
 }

@@ -1,4 +1,4 @@
-<div class="board-container">
+<div class="boardContainer">
     <mat-grid-list class="gridList" cols="6" rowHeight="1:1" gutterSize="10px">
       <mat-grid-tile class='tile' *ngFor="let card of cards; let idx=index" (click)="onCardClick(idx)">
         <mat-card class="gameCard" *ngIf="card.type=='flip'" [ngClass]="{ 'flipped': card.isFlipped }" 
@@ -8,16 +8,16 @@
                 <div class="flipCardFront">
                     <img mat-card-image src="{{card.frontImage}}" class="frontImage" layout-fill>
                     <div class="overlayMemo0" *ngIf="card.bombMemo">
-                        <mat-icon svgIcon="memo0"></mat-icon>
+                        <mat-icon class="memo0" svgIcon="memo0"></mat-icon>
                     </div>
                     <div class="overlayMemo1" *ngIf="card.oneMemo">
-                        <mat-icon svgIcon="memo1"></mat-icon>
+                        <mat-icon class="memo1" svgIcon="memo1"></mat-icon>
                     </div>
                     <div class="overlayMemo2" *ngIf="card.twoMemo">
-                        <mat-icon svgIcon="memo2"></mat-icon>
+                        <mat-icon class="memo2" svgIcon="memo2"></mat-icon>
                     </div>
                     <div class="overlayMemo3" *ngIf="card.threeMemo">
-                        <mat-icon svgIcon="memo3"></mat-icon>
+                        <mat-icon class="memo3" svgIcon="memo3"></mat-icon>
                     </div>
                 </div>
                 <div class="flipCardBack">
