@@ -1,124 +1,263 @@
-.boardContainer {
+.boardContainer{
     width: 100vw;
     height: 50vh;
     max-width: 600px;
 }
 
-.tile, .gameCard, .gameCardImage {
+
+.tile{
     display: flex;
-    object-fit: cover;
+    object-fit: contain;
+    // border-color:white;
+    // border-width: 3px;
+    // border-style: solid;
     border-radius: 5px;
 }
 
-.gameCard, .infoCard {
+/* Game Card Styles */
+.gameCard{
+    display: flex;
     width: 100%;
     height: 100%;
+    object-fit: contain;
     background-color: var(--background);
+    object-fit: cover;
+    border-radius: 0;
     perspective: 1000px;
-    flex-direction: column;
-    box-sizing: border-box;
-    border: 3px solid white;
 }
 
-.gameCardImage {
-    height: max-content;
-}
-
-.flipCardInner, .flipCardFront, .flipCardBack, .infoContainer, .pointWrapper, .bombInfoContainer {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    border-style: solid;
+.gameCardImage{
+    display: flex;
+    height: max-content;     
+    object-fit: cover;
 }
 
 .flipCardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
     text-align: center;
     transform-style: preserve-3d;
     transition: transform 0.5s;
-    border: 3px solid white;
+    transform: rotateY(0deg);
+    border-color:rgb(255, 255, 255);
+    border-width: 3px;
+    border-style: solid;    
+    box-sizing: border-box;
 }
 
 .flipped .flipCardInner {
     transform: rotateY(-180deg);
 }
 
-.flipCardFront, .flipCardBack {
+.flipCardFront,
+.flipCardBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
     justify-content: center;
     align-items: center;
-    backface-visibility: hidden;
-    border: 2px solid black;
+    border-color:black;
+    border-width: 2px;
+    border-style: solid;
+    box-sizing: border-box;
+}
+
+.flipCardFront {
+    transform: rotateY(0deg);
 }
 
 .flipCardBack {
+    transform: rotateY(180deg);
     background: #bc8c85;
     border-color: #6b3129;
-    transform: rotateY(180deg);
+    border-width: 2px;
+    border-style: solid;
+    box-sizing: border-box;
 }
 
-.frontImage, .memo0, .memo1, .memo2, .memo3 {
+.frontImage {
     width: 100%;
     height: 100%;
     object-fit: contain;
     border-radius: inherit;
 }
 
-.backImage {
+.backImage{
     height: 70%;
     width: auto;
 }
 
-.infoContainer {
-    padding: 0;
+/* Info Card Styles */
+.infoCard{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    flex-direction: column;
+    top: 0;
+    border-color:white;
+    border-width: 3px;
+    border-style: solid;    
+    box-sizing: border-box;
+}
+
+.infoContainer{
+    width: 100%;
+    height: 100%;
+    padding: 0 0 0 0 !important;
     margin-top: 0;
+    font-size: 2em;
     font-weight: bold;
 }
 
-.pointWrapper {
+.pointWrapper{
+    display: flex;
     flex: 1 2;
     height: 40%;
     justify-content: flex-end;
     align-items: center;
-    border-bottom: 3px solid white;
+    border-bottom: 3px;
+    border-bottom-style: solid;
+    border-bottom-color:white;
 }
 
 .bombInfoContainer {
+    display: flex;
     flex: 1 2;
     height: 60%;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+
 }
 
 .bombImage {
+    flex: 1 2;
+    height: auto;
     width: 30px;
     margin-right: 10px;
 }
 
+.bombText {
+    margin: 0;
+}
+
+.overlayMemo0 {
+    position: absolute;
+    display: inline-block;
+    top: 0px;
+    left: 0px;
+}
+
+.overlayMemo1 {
+    position: absolute;
+    display: inline-block;
+    top: 0px;
+    right: 0px;
+}
+
+.overlayMemo2 {
+    position: absolute;
+    display: inline-block;
+    bottom: 0px;
+    left: 0px;
+    height: 25px;
+}
+
+.overlayMemo3 {
+    position: absolute;
+    display: inline-block;
+    bottom: 0px;
+    right: 0px;
+    height: 25px;
+}
+
 @media screen and (max-width: 450px) {
-    .infoContainer {
+    .infoContainer{
+        width: 100%;
+        height: 100%;
+        padding: 0 0 0 0 !important;
+        margin-top: 0;
         font-size: 1.5em;
+        font-weight: bold;
     }
 
-    .bombImage {
+    .bombImage{
+        flex: 1 2;
+        height: auto;
         width: 25px;
         margin-right: 3px;
     }
 }
 
-@media screen and (max-width: 390px) {
-    .infoContainer {
+@media screen and (max-width: 390px) {    
+    .infoContainer{
+        width: 100%;
+        height: 100%;
+        padding: 0 0 0 0 !important;
+        margin-top: 0;
         font-size: 1.25em;
+        font-weight: bold;
     }
 
-    .bombImage {
+    .bombImage{
+        flex: 1 2;
+        height: auto;
         width: 20px;
+        margin-right: 3px;
     }
 
-    .overlayMemo0, .overlayMemo1, .overlayMemo2, .overlayMemo3 {
-        width: 12px;
+    .memo0, .memo1, .memo2, .memo3{
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .overlayMemo0 {
+        position: absolute;
+        display: inline-block;
+        top: 0px;
+        left: 0px;
         height: 12px;
+        width: 12px;
         padding-bottom: 5px;
         object-fit: contain;
+    }
+    
+    .overlayMemo1 {
         position: absolute;
+        display: inline-block;
+        top: 0px;
+        right: 0px;
+        height: 12px;
+        width: 12px;
+        padding-bottom: 5px;
+        object-fit: contain;
+
+    }
+    
+    .overlayMemo2 {
+        position: absolute;
+        display: inline-block;
+        bottom: 0px;
+        left: 0px;
+        height: 12px;
+        width: 12px;
+        padding-bottom: 5px;
+        object-fit: contain;
+
+    }
+    
+    .overlayMemo3 {
+        position: absolute;
+        display: inline-block;
+        bottom: 0px;
+        right: 0px;
+        height: 12px;
+        width: 12px;
+        padding-bottom: 5px;
+        object-fit: contain;
     }
 }
