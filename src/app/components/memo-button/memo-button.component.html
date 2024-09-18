@@ -6,7 +6,7 @@
     </button>
     
     <div class="optionsContainer">
-        <div class="memoOptions" [@openClose]="isOpen ? 'open' : 'closed'">
+        <div class="memoOptions" [@openClose]="isMobile ? (isOpen ? 'open-mobile' : 'closed-mobile') : (isOpen ? 'open' : 'closed')">
             <mat-grid-list class="gridList" cols="2" rowHeight="1:1" gutterSize="0px">
                 <mat-grid-tile>
                     <div class="memoOptionsButton" (click)="setBoardState('memo0')">

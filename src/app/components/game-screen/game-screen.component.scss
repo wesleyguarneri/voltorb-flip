@@ -20,4 +20,10 @@
         display: inline-block;
         flex-direction: column;
     }
+
+    .memoButton{
+        display: flex;
+        margin-top: 1rem;
+        justify-content: start;
+    }
 }

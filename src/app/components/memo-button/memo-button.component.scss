@@ -36,7 +36,6 @@
     margin-bottom: 2px;
 }
 
-
 .memoOptions{
     display:block;
     height: 125px;
@@ -59,8 +58,9 @@
 }
 
 @media screen and (max-width: 400px) {
-    .memoButtonContainer{
-        display: inline-block;
-        flex-direction: column;
+    .memoButtonContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center; 
     }
 }
