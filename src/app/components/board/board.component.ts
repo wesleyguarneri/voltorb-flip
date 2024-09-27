@@ -59,6 +59,7 @@ export class BoardComponent {
 
   ngOnInit(){
     this.generateBoard()
+    this.boardState.setState('default')
   }
 
   generateBoard(){

@@ -1,0 +1,19 @@
+.memoIconCard{
+    display: flex;
+    width: 62.5px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px;
+    border-color: #c67353;
+    border-width: 5px;
+    background-color: #8dadae;
+    flex-grow: 1; /* Allow the card to grow and fill the available space */
+
+}
+
+.memoIconCardImage {
+    width: 100%;      
+    height: 30px;     
+
+  }

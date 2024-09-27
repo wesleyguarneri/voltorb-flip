@@ -4,11 +4,12 @@ import { Component, HostListener } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { BoardStateService } from '../../services/board-state.service';
+import { MemoIconButtonComponent } from '../memo-icon-button/memo-icon-button.component';
 
 @Component({
   selector: 'app-memo-button',
   standalone: true,
-  imports: [MatButtonModule,CommonModule,MatGridListModule,],
+  imports: [MatButtonModule,CommonModule,MatGridListModule,MemoIconButtonComponent],
   templateUrl: './memo-button.component.html',
   styleUrl: './memo-button.component.scss',
   animations: [
@@ -62,7 +63,12 @@ export class MemoButtonComponent {
   }
 
   setBoardState(state: string){
-    this.boardState.setState(state)
+    if(this.boardState.getState()=='default'){
+      this.boardState.setState(state)
+    }
+    else{
+      this.boardState.setState('default')
+    }
   }
 
   checkScreenWidth() {
