@@ -20,6 +20,5 @@ export class MemoIconButtonComponent {
 
   ngOnInit(){
     this.urlSource = './assets/memo/large-'+this.cardValue+'.svg'
-    console.log(this.urlSource)
   }
 }
