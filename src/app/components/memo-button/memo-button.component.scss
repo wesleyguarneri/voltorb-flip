@@ -40,9 +40,13 @@
     display:block;
     height: 125px;
     width: 125px;
-    background: rgb(255,255,255);
+    background: var(--background);
     margin-left: 1rem;
     margin-top: 1rem;
+}
+
+.optionsContainer{
+
 }
 
 .memoOptionsButton{

@@ -15,5 +15,10 @@
 .memoIconCardImage {
     width: 100%;      
     height: 30px;     
+}
 
-  }
+.active {
+    svg path:last-child {
+        fill: '#ffd63f';
+      }
+}

@@ -17,8 +17,17 @@ export class MemoIconButtonComponent {
 
   cardValue: string;
   urlSource: string;
+  isActive: boolean = false;
 
   ngOnInit(){
     this.urlSource = './assets/memo/large-'+this.cardValue+'.svg'
+  }
+
+  toggleActiveIcon(){
+    this.isActive = !this.isActive
+
+    // if(this.isActive){
+    //   this.urlSource = './assets/memo/large-'+this.cardValue+'-active.svg'
+    // }
   }
 }
