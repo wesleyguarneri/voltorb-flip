@@ -1,6 +1,6 @@
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { BoardStateService } from '../../services/board-state.service';
@@ -45,9 +45,13 @@ import { MemoIconButtonComponent } from '../memo-icon-button/memo-icon-button.co
     ]),
   ],
 })
+
+
 export class MemoButtonComponent {
   isOpen: boolean = false;
   isMobile: boolean = false;
+
+  @ViewChild(MemoIconButtonComponent) memoIconButton: MemoIconButtonComponent;
 
   constructor(
     private boardState: BoardStateService
@@ -65,10 +69,15 @@ export class MemoButtonComponent {
   setBoardState(state: string){
     if(this.boardState.getState()=='default'){
       this.boardState.setState(state)
+      // this.clearMemoStates()
     }
     else{
       this.boardState.setState('default')
     }
+  }
+
+  clearMemoStates(){
+    this.memoIconButton.toggleActiveIcon()
   }
 
   checkScreenWidth() {
