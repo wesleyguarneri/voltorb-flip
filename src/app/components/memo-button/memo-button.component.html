@@ -9,25 +9,25 @@
         <div class="memoOptions" [@openClose]="isMobile ? (isOpen ? 'open-mobile' : 'closed-mobile') : (isOpen ? 'open' : 'closed')">
             <mat-grid-list class="gridList" cols="2" rowHeight="1:1" gutterSize="0px">
                 <mat-grid-tile>
-                    <div class="memoOptionsButton" (click)="setBoardState('memo0')" 
+                    <div class="memoOptionsButton" (click)="setBoardState('memo0','voltorb')" 
                         [ngStyle]="{'border-radius': '5px 0px 0px 0px', 'overflow': 'hidden'}">
                         <app-memo-icon-button param="voltorb"></app-memo-icon-button>
                     </div>
                 </mat-grid-tile>
                 <mat-grid-tile>
-                    <div class="memoOptionsButton" (click)="setBoardState('memo1')" 
+                    <div class="memoOptionsButton" (click)="setBoardState('memo1','1')" 
                         [ngStyle]="{'border-radius': '0px 5px 0px 0px', 'overflow': 'hidden'}">
                         <app-memo-icon-button param="1"></app-memo-icon-button>
                     </div>
                 </mat-grid-tile>
                 <mat-grid-tile>
-                    <div class="memoOptionsButton" (click)="setBoardState('memo2')" 
+                    <div class="memoOptionsButton" (click)="setBoardState('memo2','2')" 
                         [ngStyle]="{'border-radius': '0px 0px 0px 5px', 'overflow': 'hidden'}">
                         <app-memo-icon-button param="2"></app-memo-icon-button>
                     </div>
                 </mat-grid-tile>
                 <mat-grid-tile>
-                    <div class="memoOptionsButton" (click)="setBoardState('memo3')" 
+                    <div class="memoOptionsButton" (click)="setBoardState('memo3','3')" 
                         [ngStyle]="{'border-radius': '0px 0px 5px 0px', 'overflow': 'hidden'}">
                         <app-memo-icon-button param="3"></app-memo-icon-button>
                     </div>

@@ -1,6 +1,6 @@
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, ViewChild } from '@angular/core';
+import { Component, HostListener, QueryList, ViewChildren } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { BoardStateService } from '../../services/board-state.service';
@@ -51,7 +51,7 @@ export class MemoButtonComponent {
   isOpen: boolean = false;
   isMobile: boolean = false;
 
-  @ViewChild(MemoIconButtonComponent) memoIconButton: MemoIconButtonComponent;
+  @ViewChildren(MemoIconButtonComponent) memoIconButtons: QueryList<MemoIconButtonComponent>;
 
   constructor(
     private boardState: BoardStateService
@@ -59,25 +59,32 @@ export class MemoButtonComponent {
 
   ngOnInit(){
     this.checkScreenWidth();
-    console.log(this.isMobile)
   }
   
   toggleMemoButton(){
     this.isOpen = !this.isOpen
   }
 
-  setBoardState(state: string){
-    if(this.boardState.getState()=='default'){
+  setBoardState(state: string, cardValue: string){
+    if(this.boardState.getState() != state){
       this.boardState.setState(state)
-      // this.clearMemoStates()
     }
     else{
       this.boardState.setState('default')
     }
+    this.clearMemoStates(cardValue)
   }
 
-  clearMemoStates(){
-    this.memoIconButton.toggleActiveIcon()
+  clearMemoStates(cardValue: string){
+    this.memoIconButtons.forEach(icon =>{
+      if(icon.cardValue == cardValue && this.boardState.getState() != 'default'){
+        icon.isActive = true
+      }
+      else{
+        icon.isActive = false
+      }
+      icon.toggleActiveIcon()
+    })
   }
 
   checkScreenWidth() {

@@ -20,7 +20,6 @@ export class ResultModalComponent {
   ){}
 
   ngOnInit(){
-    console.log(this.data)
   }
 
   onClose(): void {

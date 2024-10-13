@@ -24,7 +24,7 @@ export class MemoIconButtonComponent {
   }
 
   toggleActiveIcon(){
-    this.isActive = !this.isActive
+    // this.isActive = !this.isActive
 
     if(this.isActive){
       this.urlSource = './assets/memo/large-'+this.cardValue+'-active.svg'
